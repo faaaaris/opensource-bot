@@ -1,0 +1,20 @@
+{
+  "name": "opensource-bot",
+  "version": "1.0.0",
+  "description": "An open-source bot project from faris",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "faris!#001",
+  "license": "MIT",
+  "dependencies": {
+    "ascii-table": "0.0.9",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "node-fetch": "^2.6.0",
+    "path": "^0.12.7",
+    "util": "^0.12.3"
+  }
+}
