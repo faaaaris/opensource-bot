@@ -1,11 +1,12 @@
 const { bot } = require("../../index.js");
 const { Collection } = require("discord.js");
+const { prefix } = require("../../config.json");
 
 module.exports = message => {
     if (message.author.bot) return;
     if (!message.guild) return;
 
-    let prefix = "a!"
+    let prefix = prefix;
 
     let args = message.content.slice(prefix.length).trim().split(" ");
     let command = args.shift().toLowerCase();
