@@ -65,7 +65,7 @@ module.exports.Utils = class Utils {
 		
 		if (!autoReload) {
 			const commandFiles = this._findNested(this.project_folder + "/commands/", ".js");
-			command = commandFiles.filter(commandFile => commandFile.split("/").pop() == `${command}.js`)[0];
+			command = commandFiles.filter(commandFile => commandFile.split("\\").pop() == `${command}.js`)[0];
 			if (!command) return "Unknown Command";
 		}
 		
@@ -91,12 +91,12 @@ module.exports.Utils = class Utils {
 
 		if (!autoReload) {
 			const commandFiles = this._findNested(this.project_folder + "/commands/", ".js");
-			command = commandFiles.filter(commandFile => commandFile.split("/").pop() == `${command}.js`)[0];
+			command = commandFiles.filter(commandFile => commandFile.split("\\").pop() == `${command}.js`)[0];
 			if (!command) return "Unknown Command";
 		}
 
         try {
-			const commandName = command.split("/").pop().split(".")[0];
+			const commandName = command.split("\\").pop().split(".")[0];
 			const res = this.bot.commands.delete(commandName);
 			if (!res) return "Command Not Loaded";
 			
@@ -113,7 +113,7 @@ module.exports.Utils = class Utils {
 	reloadCommand(commandName) {
 
 		const commandFiles = this._findNested(this.project_folder + "/commands/", ".js");
-		const command = commandFiles.filter(commandFile => commandFile.split("/").pop() == `${commandName}.js`)[0];
+		const command = commandFiles.filter(commandFile => commandFile.split("\\").pop() == `${commandName}.js`)[0];
 		if (!command) return "Unknown Command";
 
 		const res = this.unloadCommand(command);
@@ -122,6 +122,5 @@ module.exports.Utils = class Utils {
 			case "Command Unloaded": return this.loadCommand(command);
 			default: return res;
 		}
-
 	}
 }
