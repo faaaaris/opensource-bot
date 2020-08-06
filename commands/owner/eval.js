@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const { inspect } = require("util");
+const { ownerIds } = require("../../config.json");
 
 module.exports = {
     name: "eval",
@@ -9,7 +10,7 @@ module.exports = {
     aliases: [],
     cooldown: 0,
     run: async(bot, message, args) => {
-        if(["209312132469096449"].includes(message.author.id)) {
+        if(ownerIds.includes(message.author.id)) {
             try {
                 let toEval = args.join(" ");
                 let evaluated = inspect(eval(toEval, { depth: 0 }));

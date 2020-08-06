@@ -1,4 +1,5 @@
 const { util } = require("../../index.js");
+const { ownerIds } = require("../../config.json");
 
 module.exports = {
     name: "unload",
@@ -8,7 +9,7 @@ module.exports = {
     cooldown: 0,
     aliases: [],
     run: async(bot, message, args) => {
-        if(!["209312132469096449"].includes(message.author.id)) {
+        if(!ownerIds.includes(message.author.id)) {
             return message.reply(" the `unload` command can only be used by the bot developer.")
         };
 
